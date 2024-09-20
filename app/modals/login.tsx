@@ -59,6 +59,7 @@ const Page = () => {
 
     if (!validationErrors.email && !validationErrors.password) {
       console.log("Login Successful");
+      router.push('../(tabs)/profile')
     }
   };
 
@@ -104,7 +105,7 @@ const Page = () => {
         </TouchableOpacity>
         <View style={styles.signUpLink}>
           <Text>Don't have an account?</Text>
-          <TouchableOpacity onPress={() => router.push("./modals/signup")}>
+          <TouchableOpacity onPress={() => router.push("../modals/signup")}>
             <Text style={styles.signUpText}>Sign Up</Text>
           </TouchableOpacity>
         </View>
