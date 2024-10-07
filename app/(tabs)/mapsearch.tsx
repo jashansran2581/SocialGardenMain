@@ -1,3 +1,4 @@
+import Constants from 'expo-constants';
 import * as Location from 'expo-location';
 import { initializeApp } from 'firebase/app';
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
@@ -8,15 +9,15 @@ import { Chip } from 'react-native-paper';
 
 // Initialize Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyDY7v7EqSNpu4wFironHKjtGxAUmEjs38M",
-  authDomain: "login-auth-3b74a.firebaseapp.com",
-  projectId: "login-auth-3b74a",
-  storageBucket: "login-auth-3b74a.appspot.com",
-  messagingSenderId: "78462955694",
-  appId: "1:78462955694:web:5d4a0885c1d538015a7d3f"
+  apiKey: Constants.expoConfig?.extra?.firebaseApiKey,
+  authDomain: Constants.expoConfig?.extra?.firebaseAuthDomain,
+  projectId: Constants.expoConfig?.extra?.firebaseProjectId,
+  storageBucket: Constants.expoConfig?.extra?.firebaseStorageBucket,
+  messagingSenderId: Constants.expoConfig?.extra?.firebaseMessagingSenderId,
+  appId: Constants.expoConfig?.extra?.firebaseAppId,
 };
 
-const GOOGLE_MAPS_API_KEY = "AIzaSyCEUcVpgXO8YU-AaNPSQdIu6Y6hiPvtgpU"; // Replace with encoded API key
+const GOOGLE_MAPS_API_KEY = Constants.expoConfig?.extra?.googleMapsApiKey;
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
